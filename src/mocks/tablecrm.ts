@@ -26,9 +26,11 @@ export const mockPayboxes: Paybox[] = [
 ]
 
 export const mockOrganizations: Organization[] = [
-  { id: randomId(), name: 'ООО "Торговый дом"' },
-  { id: randomId(), name: 'ООО "Розница"' },
-]
+  { id: '1', short_name: 'ООО Ромашка' },
+  { id: '2', full_name: 'ИП Иванов Иван Иванович' },
+  { id: '3', work_name: 'Альфа' },
+  { id: '4', type: 'ЗАО' },
+];
 
 export const mockPriceTypes: PriceType[] = [
   { id: randomId(), name: 'Розничная', currency: 'RUB' },

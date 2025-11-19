@@ -45,7 +45,7 @@ const Section = ({
   </section>
 )
 
-function getOrganizationLabel(org) {
+function getOrganizationLabel(org: Organization) {
   return org.work_name && org.work_name.trim() ? org.work_name :
     org.short_name && org.short_name.trim() ? org.short_name :
     org.full_name && org.full_name.trim() ? org.full_name :
@@ -61,12 +61,12 @@ const ReferenceSelect = <T extends { id: string; name?: string; short_name?: str
   placeholder,
   loading,
 }: {
-  label: string
-  options: T[]
-  value: string
-  onChange: (value: string) => void
-  placeholder?: string
-  loading?: boolean
+  label: string;
+  options: T[];
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+  loading?: boolean;
 }) => (
   <label className="field">
     <span>{label}</span>
@@ -74,14 +74,14 @@ const ReferenceSelect = <T extends { id: string; name?: string; short_name?: str
       <option value="">{loading ? 'Загрузка...' : placeholder ?? 'Выберите значение'}</option>
       {options.map(option => (
         <option key={option.id} value={option.id}>
-          {label === "Организация" ? getOrganizationLabel(option) : (option.name && option.name.trim() ? option.name : `ID: ${option.id}`)}
+          {label === "Организация" ? getOrganizationLabel(option as Organization) : (option.name && option.name.trim() ? option.name : `ID: ${option.id}`)}
         </option>
       ))}
     </select>
   </label>
 );
 
-const safeOptions = <T extends { id?: string }>(arr: T[] | undefined) =>
+const safeOptions = <T extends { id: string }>(arr: T[] | undefined) =>
   Array.isArray(arr) ? arr.filter(o => !!o.id) : [];
 
 export const OrderForm = () => {
@@ -98,8 +98,6 @@ export const OrderForm = () => {
   const [organizationsLoading, setOrganizationsLoading] = useState(false);
   const [priceTypes, setPriceTypes] = useState<PriceType[]>([]);
   const [priceTypesLoading, setPriceTypesLoading] = useState(false);
-
-  const [referencesLoading, setReferencesLoading] = useState(false)
 
   const [selection, setSelection] = useState({
     warehouseId: '',
@@ -136,7 +134,6 @@ export const OrderForm = () => {
 
   useEffect(() => {
     if (!token) return
-    setReferencesLoading(true)
     Promise.allSettled([
       tableCrmApi.fetchWarehouses(token),
       tableCrmApi.fetchPayboxes(token),
@@ -156,8 +153,7 @@ export const OrderForm = () => {
         setSubmitMessage('Не удалось загрузить справочники')
         setSubmitState('error')
       })
-      .finally(() => setReferencesLoading(false))
-  }, [token])
+  }, [token]);
 
   // При смене токена полностью сбрасываем справочные данные
   useEffect(() => {

@@ -151,8 +151,8 @@ export const tableCrmApi = {
     return request<Paybox>('/api/v1/payboxes/', token)
   },
   fetchOrganizations: (token: string) => {
-    if (shouldMock) return mockList(mockOrganizations)
-    return request<Organization>('/api/v1/organizations/', token)
+    if (shouldMock) return mockList(mockOrganizations.map(org => ({ ...org, id: String(org.id) })));
+    return request<Organization>('/api/v1/organizations/', token).then(r => ({ ...r, data: r.data.map(org => ({ ...org, id: String(org.id) })) }));
   },
   fetchPriceTypes: (token: string) => {
     if (shouldMock) return mockList(mockPriceTypes)
