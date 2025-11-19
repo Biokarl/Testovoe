@@ -1,0 +1,291 @@
+#root {
+  min-height: 100vh;
+}
+
+.order-form {
+  display: flex;
+  justify-content: center;
+  padding: 40px 16px 80px;
+}
+
+.mobile-container {
+  width: min(420px, 100%);
+  background: #fff;
+  border-radius: 28px;
+  padding: 28px 24px 40px;
+  box-shadow:
+    0 20px 45px rgba(18, 38, 63, 0.12),
+    0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin: 0 0 4px;
+}
+
+.badge {
+  background: #eef2ff;
+  color: #4c1d95;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+
+.section-card {
+  padding: 20px;
+  border: 1px solid #e4e7ec;
+  border-radius: 16px;
+  margin-bottom: 18px;
+}
+
+.section-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section-card h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.field span {
+  font-size: 0.85rem;
+  color: #475467;
+}
+
+input,
+select,
+textarea,
+button {
+  border-radius: 10px;
+  border: 1px solid #d0d5dd;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #c7d2fe;
+  border-color: #818cf8;
+}
+
+.token-row {
+  display: flex;
+  gap: 12px;
+}
+
+.token-row input {
+  flex: 1;
+}
+
+@media (max-width: 480px) {
+  .token-row {
+    flex-direction: column;
+  }
+
+  .token-row button {
+    width: 100%;
+  }
+}
+
+.status-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.status-label .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.client-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radio-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px;
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+}
+
+.radio-row p {
+  margin: 0;
+}
+
+.radio-row span {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.product-results ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.product-results li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+}
+
+.product-results button {
+  min-width: 96px;
+}
+
+.cart {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-row {
+  border: 1px solid #e4e7ec;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.cart-title {
+  margin: 0 0 4px;
+  font-weight: 600;
+}
+
+.cart-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(60px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cart-controls input {
+  width: 100%;
+}
+
+.cart-controls .ghost {
+  border-color: #e5e7eb;
+  background: transparent;
+  color: #ef4444;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #f4f7ff;
+  margin-bottom: 12px;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.actions button {
+  flex: 1;
+  font-weight: 600;
+}
+
+.primary {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  box-shadow: 0 6px 14px rgba(79, 70, 229, 0.25);
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid #d0d5dd;
+  color: #111;
+}
+
+.helper {
+  font-size: 0.85rem;
+  margin: 10px 0 0;
+  color: #111;
+}
+
+.helper.error {
+  color: #dc2626;
+}
+
+.helper.success {
+  color: #059669;
+}
+
+.spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #c7d2fe;
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: spin 0.8s linear infinite;
+}
+
+.has-error {
+  border-color: #ef4444;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
